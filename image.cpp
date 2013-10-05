@@ -61,9 +61,9 @@ void Image::black_white() {
  *  =========================================================================
  */
 
-QImage Image::crop(QGraphicsScene *scene, const PhotoType &photoType) {
+QPixmap Image::crop(QGraphicsScene *scene, const PhotoType &photoType) {
     int x = (int) (-1 * scene->itemsBoundingRect().x());
     int y = (int) (-1 * scene->itemsBoundingRect().y());
-    QImage image(this->tempPath);
-    return image.copy(x,y,photoType.Width,photoType.Height);
+    QPixmap *image = new QPixmap(this->tempPath);
+    return image->copy(x,y,photoType.Width,photoType.Height);
 }
