@@ -58,6 +58,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Load image.
 void MainWindow::on_openButton_clicked()
 {
     QString path = QFileDialog::getOpenFileName(this,tr("Open File"),"",tr("Image Files (*.png *.jpg *.bmp)"));
@@ -66,4 +67,14 @@ void MainWindow::on_openButton_clicked()
     item->setFlag(QGraphicsItem::ItemIsMovable);
     scene->clear();
     scene->addItem(item);
+}
+
+// zoom in the image.
+void MainWindow::on_zoomIn_clicked() {
+    ui->photoView->scale(1.2,1.2);
+}
+
+// zoom out the image.
+void MainWindow::on_zoomOut_clicked() {
+    ui->photoView->scale(1.0/1.2,1.0/1.2);
 }
