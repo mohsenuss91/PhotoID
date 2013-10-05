@@ -39,10 +39,10 @@
     <widget class="QGraphicsView" name="photoView">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>50</y>
-       <width>400</width>
-       <height>400</height>
+       <x>78</x>
+       <y>29</y>
+       <width>344</width>
+       <height>443</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -120,6 +120,13 @@
        <width>150</width>
        <height>25</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>9</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
      </property>
     </widget>
     <widget class="QLabel" name="BWLabel">
