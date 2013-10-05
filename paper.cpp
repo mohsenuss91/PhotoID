@@ -9,7 +9,7 @@ Paper::Paper(QPixmap *image, QObject *parent) :
 
 void Paper::createPaper() {
     printer->setPageSize(QPrinter::A6);
-    printer->setResolution(300);
+    printer->setResolution(250);
     printer->setOutputFormat(QPrinter::PdfFormat);
     //printer->setOutputFormat(QPrinter::NativeFormat);
     printer->setOutputFileName("test.pdf");
