@@ -4,6 +4,9 @@
 #include <QMainWindow>
 #include "image.h"
 #include "photoType.h"
+#include <QGraphicsScene>
+#include <QGraphicsItem>
+#include <QFileDialog>
 
 namespace Ui {
 class MainWindow;
@@ -18,8 +21,13 @@ public:
     ~MainWindow();
 protected slots:
     void changeTypePhoto(int index);
+private slots:
+    void on_openButton_clicked();
+
 private:
     Ui::MainWindow *ui;
+    QGraphicsScene *scene;
+    QGraphicsItem *item;
     Image *image;
     PhotoType photo_35m_x_45mm;
     PhotoType photo_45m_x_45mm;

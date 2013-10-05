@@ -12,7 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     // Quit App when close the window.
     this->setAttribute(Qt::WA_QuitOnClose);
 
+    // create instances.
     image = new Image(this);
+    scene = new QGraphicsScene(this);
+
+    // delete scrollbra of photoview.
+    ui->photoView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->photoView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // create type photos.
     photo_35m_x_45mm = {1,"8idt 35mm X 45mm",344,443};
@@ -24,6 +30,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     // change type of photos.
     QObject::connect(ui->typePhoto,SIGNAL(activated(int)),this,SLOT(changeTypePhoto(int)));
+
+    // set scene to the view.
+    ui->photoView->setScene(scene);
+
+    // num of copies.
+    ui->numPhotos->setValue(1);
+
+
 }
 
 // it's runing when change type photo (slot).
@@ -42,4 +56,14 @@ void MainWindow::changeTypePhoto(int index) {
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_openButton_clicked()
+{
+    QString path = QFileDialog::getOpenFileName(this,tr("Open File"),"",tr("Image Files (*.png *.jpg *.bmp)"));
+    image->setRealPath(path);
+    item = new QGraphicsPixmapItem(QPixmap(image->getRealPath()));
+    item->setFlag(QGraphicsItem::ItemIsMovable);
+    scene->clear();
+    scene->addItem(item);
 }
