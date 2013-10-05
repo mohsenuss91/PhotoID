@@ -4,6 +4,8 @@
 #include <QObject>
 #include <QString>
 #include <QImage>
+#include <QFile>
+
 
 class Image : public QObject
 {

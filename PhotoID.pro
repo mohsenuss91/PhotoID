@@ -17,7 +17,8 @@ SOURCES += main.cpp\
     image.cpp
 
 HEADERS  += mainwindow.h \
-    image.h
+    image.h \
+    photoType.h
 
 FORMS    += mainwindow.ui
 
