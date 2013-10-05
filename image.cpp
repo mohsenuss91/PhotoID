@@ -11,15 +11,15 @@ Image::Image(QString realPath,QObject *parent) {
 }
 
 void Image::setRealPath(QString path) {
-  this->realPath = path;
+    this->realPath = path;
 }
 
 QString Image::getRealPath() const {
-  return this->realPath;
+    return this->realPath;
 }
 
 void Image::setTempPath(QString path) {
-  this->tempPath = path;
+    this->tempPath = path;
 }
 
 QString Image::getTempPath() const {
@@ -52,4 +52,18 @@ void Image::black_white() {
         delete image;
         emit wb_finished();
     }
+}
+
+/*  =========================================================================
+ *      - Description : this function corp image from Scene .
+ *      - Auther : Hachem Zerdia
+ *      - Return : QImage
+ *  =========================================================================
+ */
+
+QImage Image::crop(QGraphicsScene *scene, const PhotoType &photoType) {
+    int x = (int) (-1 * scene->itemsBoundingRect().x());
+    int y = (int) (-1 * scene->itemsBoundingRect().y());
+    QImage image(this->tempPath);
+    return image.copy(x,y,photoType.Width,photoType.Height);
 }

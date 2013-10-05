@@ -5,7 +5,8 @@
 #include <QString>
 #include <QImage>
 #include <QFile>
-
+#include <QGraphicsScene>
+#include "photoType.h"
 
 class Image : public QObject
 {
@@ -17,7 +18,7 @@ public:
   QString getRealPath() const;
   void setTempPath(QString path);
   QString getTempPath() const;
-  QImage crop(); // crop the image and save it in temp path.
+  QImage crop(QGraphicsScene *scene, PhotoType const &photoType); // crop the image and save it in temp path.
 
 signals:
   void wb_finished(); // emited when black_white() finiched.
