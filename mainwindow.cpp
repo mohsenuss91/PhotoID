@@ -78,3 +78,23 @@ void MainWindow::on_zoomIn_clicked() {
 void MainWindow::on_zoomOut_clicked() {
     ui->photoView->scale(1.0/1.2,1.0/1.2);
 }
+
+// rotate image 90°
+void MainWindow::on_rotateRight_clicked() {
+    ui->photoView->rotate(90);
+}
+
+// rotate image -90°
+void MainWindow::on_rotateLeft_clicked() {
+    ui->photoView->rotate(-90);
+}
+
+// rotate image 5°
+void MainWindow::on_miniRotateRight_clicked() {
+    ui->photoView->rotate(5);
+}
+
+// rotate image -5°
+void MainWindow::on_miniRotateLeft_clicked() {
+    ui->photoView->rotate(-5);
+}

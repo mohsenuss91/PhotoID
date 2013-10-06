@@ -24,6 +24,18 @@ protected slots:
 private slots:
     void on_openButton_clicked();
 
+    void on_zoomIn_clicked();
+
+    void on_zoomOut_clicked();
+
+    void on_rotateRight_clicked();
+
+    void on_rotateLeft_clicked();
+
+    void on_miniRotateRight_clicked();
+
+    void on_miniRotateLeft_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *scene;
